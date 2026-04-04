@@ -1,1 +1,2 @@
-# Comboji 2
+# comboji
+Trouvez la bonne combinaison d'emojis !
