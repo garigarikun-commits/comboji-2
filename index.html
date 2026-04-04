@@ -7,10 +7,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Comboji 2">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" type="image/png" href="Comboji-2-icon.png?v=2">
-<link rel="apple-touch-icon" sizes="180x180" href="Comboji-2-icon.png?v=2">
-<link rel="apple-touch-icon-precomposed" href="Comboji-2-icon.png?v=2">
+<link rel="manifest" href="manifest.webmanifest?v=3">
+<link rel="icon" type="image/png" href="Comboji-2-icon-v2.png?v=3">
+<link rel="apple-touch-icon" sizes="180x180" href="Comboji-2-icon-v2.png?v=3">
+<link rel="apple-touch-icon-precomposed" href="Comboji-2-icon-v2.png?v=3">
 <title>Comboji 2</title>
 <style>
 :root{--bg:#04152e;--bg2:#062b53;--panel:rgba(8,29,56,.86);--card:rgba(12,43,83,.95);--card2:rgba(18,61,112,.98);--b:rgba(35,234,240,.3);--bs:rgba(35,234,240,.75);--t:#f4fcff;--m:rgba(230,249,255,.74);--a:#23eaf0;--a2:#04c9e3;--a3:#0757a1;--ok:#52d273;--bad:#ff4d5e;--shadow:0 22px 60px rgba(0,0,0,.32)}
@@ -213,7 +213,7 @@ function resetGame(){stopChrono();document.body.classList.add("game-override");d
 function loadPuzzle(){const puzzle=getCurrentPuzzle();document.getElementById("targetEmoji").textContent=puzzle.target;document.getElementById("hintBox").textContent=`${T[LANG].hint} : ${puzzle.hint[LANG]}`;updateDifficultyUi(puzzle);slots=new Array(puzzle.solution.length).fill(null);buildGrid();buildSlots();updateValidateBtn()}
 function applyTranslations(){document.getElementById("creditBy").textContent=T[LANG].creditBy;document.getElementById("playBtn").textContent=T[LANG].playBtn;document.getElementById("speedrunBtn").textContent=T[LANG].speedrunBtn;document.getElementById("targetLabel").textContent=T[LANG].targetLabel;document.getElementById("validateBtn").textContent=T[LANG].validate;document.getElementById("continueBtn").textContent=T[LANG].continue;document.getElementById("restartBtn").textContent=T[LANG].restart;document.getElementById("shareBtn").textContent=T[LANG].share;document.getElementById("losePanelTitle").textContent=T[LANG].lost;document.getElementById("levelContinueBtn").textContent=T[LANG].continue}
 document.getElementById("validateBtn").addEventListener("click",validate);document.getElementById("continueBtn").addEventListener("click",()=>{currentPuzzleIndex>=PUZZLES.length?resetGame():nextPuzzle()});document.getElementById("restartBtn").addEventListener("click",resetGame);document.getElementById("levelContinueBtn").addEventListener("click",()=>{document.getElementById("levelPanel").classList.remove("show");livesLeft=4;gameOver=false;document.getElementById("message").textContent="";updateLives();loadPuzzle()});document.getElementById("shareBtn").addEventListener("click",async()=>{const text=T[LANG].shareText(score,PUZZLES.length);if(navigator.share){await navigator.share({text});return}await navigator.clipboard.writeText(text);alert(T[LANG].clipboardMsg)});document.getElementById("playBtn").addEventListener("click",()=>startGame(false));document.getElementById("speedrunBtn").addEventListener("click",()=>startGame(true));applyTranslations();
-if("serviceWorker" in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("./sw.js").catch(()=>{})})}
+if("serviceWorker" in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("./sw.js?v=3").then(reg=>reg.update()).catch(()=>{})})}
 </script>
 </body>
 </html>

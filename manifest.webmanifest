@@ -2,7 +2,7 @@
   "name": "Comboji 2",
   "short_name": "Comboji 2",
   "description": "Suite non officielle de Comboji, jouable comme une app mobile.",
-  "start_url": "./index.html",
+  "start_url": "./index.html?v=3",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
@@ -10,7 +10,7 @@
   "theme_color": "#082344",
   "icons": [
     {
-      "src": "Comboji-2-icon.png",
+      "src": "Comboji-2-icon-v2.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"

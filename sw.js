@@ -1,11 +1,16 @@
-const CACHE_NAME = "comboji2-v1";
+const CACHE_NAME = "comboji2-v3";
 const ASSETS = [
   "./",
   "./index.html",
+  "./index.html?v=3",
   "./manifest.webmanifest",
+  "./manifest.webmanifest?v=3",
   "./sw.js",
+  "./sw.js?v=3",
   "./logocomboji-2.png",
-  "./Comboji-2-icon.png"
+  "./Comboji-2-icon.png",
+  "./Comboji-2-icon-v2.png",
+  "./Comboji-2-icon-v2.png?v=3"
 ];
 
 self.addEventListener("install", (event) => {
@@ -30,6 +35,18 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
+  if (event.request.mode === "navigate") {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put("./index.html", clone));
+          return response;
+        })
+        .catch(() => caches.match("./index.html"))
+    );
+    return;
+  }
   event.respondWith(
     caches.match(event.request).then((cached) => {
       if (cached) return cached;
