@@ -1,16 +1,16 @@
-const CACHE_NAME = "comboji2-v10";
+const CACHE_NAME = "comboji2-v11";
 const ASSETS = [
   "./",
   "./index.html",
-  "./index.html?v=10",
+  "./index.html?v=11",
   "./manifest.webmanifest",
-  "./manifest.webmanifest?v=10",
+  "./manifest.webmanifest?v=11",
   "./sw.js",
-  "./sw.js?v=10",
+  "./sw.js?v=11",
   "./logocomboji-2.png",
   "./Comboji-2-icon.png",
   "./Comboji-2-icon-solid.png",
-  "./Comboji-2-icon-solid.png?v=10"
+  "./Comboji-2-icon-solid.png?v=11"
 ];
 
 self.addEventListener("install", (event) => {
