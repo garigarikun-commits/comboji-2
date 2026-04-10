@@ -2,7 +2,7 @@
   "name": "Comboji 2",
   "short_name": "Comboji 2",
   "description": "Suite non officielle de Comboji, jouable comme une app mobile.",
-  "start_url": "./index.html?v=8",
+  "start_url": "./index.html?v=9",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
